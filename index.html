@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Powering The Next Stage of Growth | Simpro & Precision Plumbing & Heating</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F5F5F5;
+            color: #5A5A5A;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 300px;
+            }
+        }
+        .kpi-card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+            border: 1px solid #E5E5E5;
+        }
+        .kpi-value {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #8B4513;
+        }
+        .kpi-label {
+            font-size: 1rem;
+            color: #A9A9A9;
+            margin-top: 0.5rem;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #2F2F2F;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .section-subtitle {
+            font-size: 1.125rem;
+            text-align: center;
+            color: #5A5A5A;
+            max-width: 48rem;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 4rem;
+        }
+        .content-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 2.5rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+            border: 1px solid #E5E5E5;
+        }
+        .flow-node {
+            background-color: #f5f5f5;
+            color: #5A5A5A;
+            border: 2px dashed #A9A9A9;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            font-weight: 600;
+        }
+        .flow-hub {
+            background-color: #8B4513;
+            color: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2.5rem;
+            padding-left: 2.5rem;
+            border-left: 3px solid #DCDCDC;
+        }
+        .timeline-item:last-child {
+            border-left: 3px solid transparent;
+        }
+        .timeline-marker {
+            position: absolute;
+            left: -0.8rem;
+            top: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            background-color: #8B4513;
+            border: 3px solid #F5F5F5;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <main class="container mx-auto px-4 py-16">
+
+        <section id="hero" class="text-center mb-24">
+            <h1 class="text-4xl md:text-5xl font-black text-[#2F2F2F]">Powering the Next Stage of Growth for <span class="text-[#8B4513]">Precision Plumbing & Heating</span></h1>
+            <p class="mt-4 text-lg max-w-3xl mx-auto">An analysis of the strategic opportunity to break through the "growth ceiling" by transforming your operational foundation.</p>
+            <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="kpi-card">
+                    <div class="kpi-value">50</div>
+                    <div class="kpi-label">Employees</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-value">4</div>
+                    <div class="kpi-label">Trade Divisions</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-value">20+</div>
+                    <div class="kpi-label">Years of Excellence</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pains" class="mb-24">
+            <h2 class="section-title">The Current Reality: The High Cost of Success</h2>
+            <p class="section-subtitle">
+                Your two decades of success have created a level of operational complexity that manual processes and mismatched software can no longer efficiently handle. This friction creates tangible pains that silently erode profitability and cap your growth potential.
+            </p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="content-card">
+                    <h3 class="text-xl font-bold text-center mb-2 text-[#2F2F2F]">Constrained Cash Flow</h3>
+                    <p class="text-center text-sm text-gray-500 mb-6">The journey from job completion to payment is a critical financial lever. Disconnected invoicing and payment processes can delay revenue recognition by over two months, tying up essential working capital.</p>
+                    <div class="chart-container">
+                        <canvas id="cashFlowChart"></canvas>
+                    </div>
+                </div>
+                <div class="content-card">
+                    <h3 class="text-xl font-bold text-center mb-2 text-[#2F2F2F]">Wasted Administrative Capacity</h3>
+                    <p class="text-center text-sm text-gray-500 mb-6">Valuable office staff time is consumed by "double work," manual data entry, and chasing down paperwork. This is capacity that could be repurposed for high-value activities like proactive customer service.</p>
+                    <div class="chart-container">
+                        <canvas id="adminTimeChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="transformation" class="mb-24">
+            <h2 class="section-title">The Vision: From Friction to Flow</h2>
+            <p class="section-subtitle">
+                The solution is to move from a collection of disconnected tools to a single, end-to-end operational platform. Simpro provides one source of truth that connects every part of your business, adapting to your workflows and eliminating the friction that holds you back.
+            </p>
+            <div class="content-card">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="text-center p-4">
+                        <h3 class="text-2xl font-bold text-red-700 mb-4">Before: Disconnected Systems</h3>
+                        <p class="text-gray-600 mb-8">Data is fragmented across spreadsheets, paper job cards, and software not built for the dynamic needs of a service business, leading to lost information and inefficiency.</p>
+                        <div class="space-y-4">
+                            <div class="flow-node">Spreadsheets & Word Docs</div>
+                            <div class="flow-node">Paper Job Cards & Invoices</div>
+                            <div class="flow-node">Construction PM Software</div>
+                        </div>
+                    </div>
+                    <div class="text-center p-4">
+                        <h3 class="text-2xl font-bold text-green-700 mb-4">After: Simpro's Unified Platform</h3>
+                        <p class="text-gray-600 mb-8">One system manages the entire job lifecycle, from the initial quote to the final payment, providing real-time visibility and control for every stakeholder.</p>
+                        <div class="flex justify-center">
+                            <div class="flow-hub">Simpro</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="roi" class="mb-24">
+            <h2 class="section-title">The Quantifiable Impact: Your Projected ROI</h2>
+            <p class="section-subtitle">
+                This is not just a software upgrade; it's a strategic investment with a clear, multi-pronged return. These projections are based on the documented success of peer companies who share your operational DNA.
+            </p>
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+                <div class="lg:col-span-3 content-card">
+                    <h3 class="text-xl font-bold text-center mb-2 text-[#2F2F2F]">Key Performance Improvements</h3>
+                    <p class="text-center text-sm text-gray-500 mb-6">Simpro drives dramatic, measurable improvements across the entire business, directly impacting your top and bottom lines.</p>
+                    <div class="chart-container h-[400px] md:h-[450px]">
+                        <canvas id="roiBarChart"></canvas>
+                    </div>
+                </div>
+                <div class="lg:col-span-2 content-card flex flex-col">
+                     <h3 class="text-xl font-bold text-center mb-2 text-[#2F2F2F]">Value for Precision</h3>
+                     <p class="text-center text-sm text-gray-500 mb-6">Here's what those improvements translate to in tangible value for your operation.</p>
+                     <div class="flex-grow overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead class="bg-gray-50 text-xs text-gray-700 uppercase">
+                                <tr><th class="px-4 py-3">Metric Area</th><th class="px-4 py-3">Projected Annual Value</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b"><td class="px-4 py-4 font-semibold text-[#5A5A5A]">Admin Efficiency</td><td class="px-4 py-4">$100,000+</td></tr>
+                                <tr class="border-b"><td class="px-4 py-4 font-semibold text-[#5A5A5A]">Sales Velocity</td><td class="px-4 py-4">Bid on 100s more jobs</td></tr>
+                                <tr class="border-b"><td class="px-4 py-4 font-semibold text-[#5A5A5A]">Cash Flow</td><td class="px-4 py-4">Unlock working capital</td></tr>
+                                <tr class="border-b"><td class="px-4 py-4 font-semibold text-[#5A5A5A]">Tech Productivity</td><td class="px-4 py-4">Double job capacity</td></tr>
+                                <tr><td class="px-4 py-4 font-semibold text-[#5A5A5A]">Revenue Growth</td><td class="px-4 py-4">20-50% realistic target</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="partnership">
+            <h2 class="section-title">A Partnership for Your Future</h2>
+            <p class="section-subtitle">
+                We are more than a software vendor; we are your long-term partner in success. Our journey together is a collaborative process designed to ensure Simpro is the perfect fit to power your next chapter of growth.
+            </p>
+            <div class="content-card max-w-2xl mx-auto">
+                <div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <h4 class="text-lg font-bold text-[#2F2F2F]">1. Strategic Discovery</h4>
+                        <p class="text-gray-600">We begin by listening, seeking to deeply understand your specific goals, processes, and operational challenges.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <h4 class="text-lg font-bold text-[#2F2F2F]">2. Tailored Solution Demo</h4>
+                        <p class="text-gray-600">We demonstrate exactly how Simpro solves your problems, with sessions tailored for both executive vision and operational reality.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <h4 class="text-lg font-bold text-[#2F2F2F]">3. Value-Based Proposal</h4>
+                        <p class="text-gray-600">We present a clear proposal that explicitly links the investment to the business outcomes and ROI you can expect.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <h4 class="text-lg font-bold text-[#2F2F2F]">4. Seamless Onboarding & Success</h4>
+                        <p class="text-gray-600">Our dedicated implementation and support teams ensure a smooth transition and provide ongoing partnership to maximize your value.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white mt-24 border-t">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p class="text-xl font-bold text-[#2F2F2F]">Ready to unlock your true growth potential?</p>
+            <p class="mt-2 text-md text-gray-600">Let's begin a strategic conversation about your future.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const warmNeutrals = {
+                accent: '#8B4513',
+                textDark: '#2F2F2F',
+                textLight: '#5A5A5A',
+                accent2: '#A9A9A9',
+                accent3: '#D2B48C',
+                accent4: '#BC8F8F',
+            };
+
+            const wrapLabel = (label, maxWidth = 16) => {
+                if (typeof label !== 'string' || label.length <= maxWidth) return label;
+                const words = label.split(' ');
+                const lines = [];
+                let currentLine = '';
+                words.forEach(word => {
+                    if ((currentLine + ' ' + word).trim().length > maxWidth) {
+                        lines.push(currentLine.trim());
+                        currentLine = word;
+                    } else {
+                        currentLine = (currentLine + ' ' + word).trim();
+                    }
+                });
+                if (currentLine) lines.push(currentLine.trim());
+                return lines;
+            };
+
+            const tooltipTitleCallback = (tooltipItems) => {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                return Array.isArray(label) ? label.join(' ') : label;
+            };
+
+            const defaultChartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { color: warmNeutrals.textLight, font: { family: "'Inter', sans-serif" } } },
+                    tooltip: {
+                        callbacks: { title: tooltipTitleCallback },
+                        backgroundColor: warmNeutrals.textDark,
+                        titleFont: { size: 14, family: "'Inter', sans-serif" },
+                        bodyFont: { size: 12, family: "'Inter', sans-serif" },
+                        padding: 12,
+                        cornerRadius: 4
+                    }
+                },
+                scales: {
+                    x: { ticks: { color: warmNeutrals.textLight, font: { family: "'Inter', sans-serif" } }, grid: { display: false } },
+                    y: { ticks: { color: warmNeutrals.textLight, font: { family: "'Inter', sans-serif" } }, grid: { color: '#E5E5E5' } }
+                }
+            };
+
+            const cashFlowCtx = document.getElementById('cashFlowChart')?.getContext('2d');
+            if (cashFlowCtx) {
+                new Chart(cashFlowCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Job Complete', 'Invoice Sent', 'Payment Received'],
+                        datasets: [{
+                            label: 'Current Process', data: [0, 30, 65], borderColor: warmNeutrals.accent4, backgroundColor: 'rgba(188, 143, 143, 0.1)', fill: true, tension: 0.1
+                        }, {
+                            label: 'With Simpro', data: [0, 1, 28], borderColor: warmNeutrals.accent, backgroundColor: 'rgba(139, 69, 19, 0.1)', fill: true, tension: 0.1
+                        }]
+                    },
+                    options: { ...defaultChartOptions, scales: { y: { ...defaultChartOptions.scales.y, title: { display: true, text: 'Days', color: warmNeutrals.textLight } }, x: { ...defaultChartOptions.scales.x } } }
+                });
+            }
+            
+            const adminTimeCtx = document.getElementById('adminTimeChart')?.getContext('2d');
+            if (adminTimeCtx) {
+                 new Chart(adminTimeCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Manual Admin Tasks', 'High-Value Work'],
+                        datasets: [{ data: [80, 20], backgroundColor: [warmNeutrals.accent3, warmNeutrals.accent], borderColor: '#ffffff', borderWidth: 4 }]
+                    },
+                    options: { responsive: true, maintainAspectRatio: false, plugins: { ...defaultChartOptions.plugins, title: { display: true, text: 'Time Allocation Before Simpro', font: { size: 16, weight: 'bold' }, color: warmNeutrals.textDark } } }
+                });
+            }
+
+            const roiBarCtx = document.getElementById('roiBarChart')?.getContext('2d');
+            if (roiBarCtx) {
+                const rawLabels = ['Invoicing Time Reduction', 'Quote Generation Speed', 'Technician Job Capacity', 'Profit Margin Increase', 'Overall Revenue Growth'];
+                const chartLabels = rawLabels.map(label => wrapLabel(label, 20));
+                new Chart(roiBarCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: chartLabels,
+                        datasets: [{
+                            label: 'Potential Improvement (%)',
+                            data: [90, 75, 100, 60, 50],
+                            backgroundColor: [warmNeutrals.accent, warmNeutrals.accent3, warmNeutrals.accent4, warmNeutrals.accent2, warmNeutrals.textLight],
+                            borderRadius: 4
+                        }]
+                    },
+                    options: { ...defaultChartOptions, indexAxis: 'y', scales: { x: { ...defaultChartOptions.scales.x, title: { display: true, text: 'Improvement (%)', color: warmNeutrals.textLight } }, y: { ...defaultChartOptions.scales.y, grid: { display: false } } }, plugins: { ...defaultChartOptions.plugins, legend: { display: false } } }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
